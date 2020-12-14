@@ -3,7 +3,7 @@ package main.java.com.icbt.bookstore;
 /**
  * This is a model class represents a book entity
  * @author macbookpro
- *
+ * @since 12.12.2020
  */
 public class Book {
 	
