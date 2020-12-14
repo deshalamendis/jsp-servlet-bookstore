@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http;//xmlns.jcp.org/xml/ns/javaee" >
+
+	<display-name>Book Management Web Application</display-name>
+	
+	<context-param>
+		<param-name>jdbcURL</param-name>
+		<param-value>jdbc:mysql://localhost:3306/bookstore</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>jdbcUsername</param-name>
+		<param-value>root</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>jdbcPassword</param-name>
+		<param-value>0112252528</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>ControllerServlet</servlet-name>
+		<servlet-class>main.java.com.icbt.bookstore.ControllerServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ControllerServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+</web-app>
