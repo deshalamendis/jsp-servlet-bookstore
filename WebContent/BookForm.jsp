@@ -13,9 +13,9 @@
 	<center>
 		<h1>Book Management</h1>
 		<h2>
-			<a href="/new">Add New Book</a>
+			<a href="/BookStore/new">Add New Book</a>
 			&nbsp;&nbsp;&nbsp;
-			<a href="/list">List All Books</a> 
+			<a href="/BookStore/list">List All Books</a> 
 		</h2>
 	</center>
 	
@@ -27,7 +27,13 @@
 				
 				<tr>
 					<th>Title: </th>
+					<c:if test="${book != null}">
+					<td><input type="text" name="title" size="45" value="<c:out value='${book.title }'/>"/></td>
+					</c:if>
+					<c:if test="${book == null}">
 					<td><input type="text" name="title" size="45" /></td>
+					</c:if>
+					
 				</tr>
 				<tr>
 					<th>Author: </th>

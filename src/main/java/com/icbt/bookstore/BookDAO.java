@@ -168,12 +168,11 @@ public class BookDAO {
 	public Book getBook(int id) throws SQLException {
 		
 		Book book = null;
-		String sql = "SELECT * FROM book WHERE book_id = ?";
+		String sql = "SELECT * FROM book WHERE book_id = " + id;
 		
 		connect();
 		
 		PreparedStatement statement =  jdbcConnection.prepareStatement(sql);
-		statement.setInt(1, id);
 		
 		ResultSet resultSet = statement.executeQuery(sql);
 		

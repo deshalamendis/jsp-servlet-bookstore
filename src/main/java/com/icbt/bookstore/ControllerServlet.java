@@ -92,8 +92,12 @@ public class ControllerServlet extends HttpServlet {
 		
 	}
 
-	private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Book existingBook = bookDAO.getBook(id);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
+		request.setAttribute("book", existingBook);
+		dispatcher.forward(request, response);
 		
 	}
 
