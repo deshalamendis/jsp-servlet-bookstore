@@ -9,6 +9,17 @@
 <meta charset="UTF-8">
 <title>Book Store Application</title>
 </head>
+<script type="text/javascript">
+	function deleteConfirmation(id) {
+		var doIt = confirm('Do you want to delete the book?');
+		
+		if(doIt == true){
+			document.forms[0].action = "/BookStore/delete?id=" + id;
+			document.forms[0].submit();
+		}
+		else{}
+	}
+</script>
 <body>
 	<center>
 		<h1>Book Management</h1>
@@ -38,7 +49,10 @@
 					<td>
 						<a href="/BookStore/edit?id=<c:out value='${book.id }' />">Edit</a>
 						&nbsp;&nbsp;&nbsp;
-						<a href="/BookStore/delete?id=<c:out value='${book.id }' />">Delete</a>
+						<%-- <a href="/BookStore/delete?id=<c:out value='${book.id }' />">Delete</a> --%>
+						
+						<input type="submit" name="delete" value="Delete" onClick="deleteConfirmation(<c:out value='${book.id }' />)" />
+						<!-- <a >Delete</a> -->
 					</td>
 				</tr>
 			</c:forEach>

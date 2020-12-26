@@ -87,9 +87,16 @@ public class ControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void updateBook(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void updateBook(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		String title = request.getParameter("title");
+		String author = request.getParameter("author");
+		float price = Float.parseFloat(request.getParameter("price"));
 		
+		Book book = new Book(id, title, author, price);
+		bookDAO.updateBook(book);
+		
+		response.sendRedirect("list");
 	}
 
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -101,8 +108,16 @@ public class ControllerServlet extends HttpServlet {
 		
 	}
 
-	private void deleteBook(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		Book book = new Book();
+		book.setId(id);
+		
+		bookDAO.deleteBook(book);
+		
+		response.sendRedirect("list");
+		
 		
 	}
 
