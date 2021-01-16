@@ -27,6 +27,8 @@
 			<a href="/BookStore/new">Add New Book</a>
 			&nbsp;&nbsp;&nbsp;
 			<a href="/BookStore/list">List All Books</a> 
+			&nbsp;&nbsp;&nbsp;
+			<a href="/BookStore/report">Create Report</a> 
 		</h2>
 	</center>
 	
